@@ -1,0 +1,153 @@
+URGENT MOBILE RESPONSIVE FIX
+
+The mobile view is broken. On iPhone, half the page is cut off to the right. The site is wider than the phone screen. It was working before, so a recent layout change likely caused horizontal overflow.
+
+Fix the mobile layout so nothing is cut off.
+
+Main problem:
+Some container, feed row, filter row, composer, or card layout is using a fixed desktop width and forcing the whole page wider than the viewport.
+
+Required fixes:
+
+1. Add global overflow protection:
+
+html,
+body,
+#root {
+width: 100%;
+max-width: 100%;
+overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  }
+
+2. On mobile, remove all fixed desktop widths.
+
+Search for widths like:
+
+* width: 1200px
+* min-width: 900px
+* min-width: 1000px
+* left sidebar width being included
+* grid-template-columns forcing desktop layout
+
+Replace mobile widths with:
+
+width: 100%;
+max-width: 100%;
+
+3. Fix main app container on mobile:
+
+@media (max-width: 768px) {
+.app-layout,
+.main-content,
+.page-content,
+.feed-container,
+.wall-container {
+width: 100%;
+max-width: 100vw;
+margin: 0;
+padding-left: 10px;
+padding-right: 10px;
+overflow-x: hidden;
+}
+}
+
+4. Hide desktop sidebar on mobile.
+
+@media (max-width: 768px) {
+.sidebar,
+.desktop-sidebar {
+display: none;
+}
+}
+
+5. Make bottom navigation fit the phone.
+
+@media (max-width: 768px) {
+.bottom-nav {
+width: 100%;
+max-width: 100vw;
+left: 0;
+right: 0;
+}
+}
+
+6. Fix filter buttons.
+
+The filter row is likely causing horizontal overflow.
+
+@media (max-width: 768px) {
+.filter-row,
+.category-filter-row {
+display: flex;
+overflow-x: auto;
+width: 100%;
+max-width: 100vw;
+white-space: nowrap;
+padding: 8px 10px;
+}
+
+.filter-row button,
+.category-filter-row button {
+flex: 0 0 auto;
+}
+}
+
+7. Fix post cards.
+
+@media (max-width: 768px) {
+.post-card,
+.echo-card,
+.feed-card {
+width: 100%;
+max-width: 100%;
+margin-left: 0;
+margin-right: 0;
+}
+}
+
+8. Fix composer/write box.
+
+@media (max-width: 768px) {
+.composer,
+.composer-section,
+.write-box,
+textarea {
+width: 100%;
+max-width: 100%;
+}
+
+.composer-row {
+flex-direction: column;
+width: 100%;
+}
+}
+
+9. Remove any transform/translate positioning that pushes content off-screen on mobile.
+
+Look for:
+transform: translateX(...)
+left: 50%
+margin-left: ...
+position: absolute
+
+If used for centering, replace with:
+
+margin-left: auto;
+margin-right: auto;
+
+10. Test at:
+
+* iPhone SE width 375px
+* iPhone 12/13/14 width 390px
+* Android width 360px
+* Tablet width 768px
+
+Acceptance test:
+Open ventwall.app on iPhone. The whole page must fit inside the screen. No content should be cut off. No sideways scrolling. Feed cards, filters, composer, and bottom nav must all stay inside the viewport.
+
+Goal:
+Restore the old mobile-friendly view and prevent desktop layout from breaking mobile again.

@@ -1,0 +1,506 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: VentWall API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: posts
+    description: Post operations
+  - name: moderation
+    description: Moderation operations
+  - name: admin
+    description: Admin operations
+  - name: reflections
+    description: AI Reflection operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /posts:
+    get:
+      operationId: listPosts
+      tags: [posts]
+      summary: List feed posts
+      parameters:
+        - name: emotionTag
+          in: query
+          schema:
+            type: string
+        - name: noTag
+          in: query
+          description: Filter to posts with no emotion tag
+          schema:
+            type: boolean
+        - name: cursor
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Post"
+    post:
+      operationId: createPost
+      tags: [posts]
+      summary: Create a new post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostInput"
+      responses:
+        "201":
+          description: Created post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "400":
+          description: Invalid input
+        "403":
+          description: Session banned
+        "422":
+          description: Rejected by automated moderation
+        "429":
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateLimitResponse"
+
+  /posts/summary:
+    get:
+      operationId: getFeedSummary
+      tags: [posts]
+      summary: Get feed summary stats
+      responses:
+        "200":
+          description: Feed summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FeedSummary"
+
+  /posts/{id}:
+    get:
+      operationId: getPost
+      tags: [posts]
+      summary: Get a single post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "404":
+          description: Not found
+
+  /posts/{id}/echo:
+    post:
+      operationId: addEchoReaction
+      tags: [posts]
+      summary: Add an Echo reaction to a post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EchoInput"
+      responses:
+        "200":
+          description: Updated reaction counts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReactionCounts"
+        "404":
+          description: Not found
+
+  /posts/{id}/reports:
+    post:
+      operationId: reportPost
+      tags: [posts]
+      summary: Report a post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReportInput"
+      responses:
+        "201":
+          description: Report submitted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Report"
+        "404":
+          description: Not found
+
+  /moderation/check:
+    post:
+      operationId: checkContent
+      tags: [moderation]
+      summary: Check content for safety flags before posting
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContentCheck"
+      responses:
+        "200":
+          description: Safety check result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SafetyResult"
+
+  /admin/posts:
+    get:
+      operationId: listAdminPosts
+      tags: [admin]
+      summary: Admin list of all posts (includes reported/flagged)
+      parameters:
+        - name: flagged
+          in: query
+          schema:
+            type: boolean
+        - name: cursor
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of posts for admin
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdminPost"
+
+  /admin/posts/{id}:
+    patch:
+      operationId: moderatePost
+      tags: [admin]
+      summary: Admin moderate a post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ModerationAction"
+      responses:
+        "200":
+          description: Moderated post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminPost"
+        "404":
+          description: Not found
+
+  /reflections/generate:
+    post:
+      operationId: generateReflection
+      tags: [reflections]
+      summary: Trigger AI to generate and post a reflection (server-side rate limited)
+      responses:
+        "201":
+          description: Reflection created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "429":
+          description: Rate limit reached
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RateLimitResponse"
+
+  /reflections/daily-prompt:
+    get:
+      operationId: getDailyPrompt
+      tags: [reflections]
+      summary: Get today's daily reflection prompt
+      responses:
+        "200":
+          description: Daily prompt
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DailyPrompt"
+
+  /admin/reports:
+    get:
+      operationId: listAdminReports
+      tags: [admin]
+      summary: Admin list of reports
+      parameters:
+        - name: cursor
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of reports
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Report"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    Post:
+      type: object
+      required: [id, content, isAnonymous, expiresAt, createdAt, reactionCounts, reportCount, isRemoved, isAiReflection, isDailyPrompt]
+      properties:
+        id:
+          type: integer
+        content:
+          type: string
+        emotionTag:
+          type: ["string", "null"]
+        authorName:
+          type: ["string", "null"]
+        isAnonymous:
+          type: boolean
+        expiresAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        reactionCounts:
+          $ref: "#/components/schemas/ReactionCounts"
+        reportCount:
+          type: integer
+        isRemoved:
+          type: boolean
+        isAiReflection:
+          type: boolean
+        isDailyPrompt:
+          type: boolean
+
+    PostInput:
+      type: object
+      required: [content, isAnonymous]
+      properties:
+        content:
+          type: string
+          minLength: 1
+          maxLength: 1000
+        emotionTag:
+          type: string
+        authorName:
+          type: string
+        isAnonymous:
+          type: boolean
+
+    EchoInput:
+      type: object
+      required: [reactionType]
+      properties:
+        reactionType:
+          type: string
+          enum: [heard, iFeelThat, sameWave, notAlone, letItBurn, keepGoing, neededThis]
+
+    ReactionCounts:
+      type: object
+      required: [heard, iFeelThat, sameWave, notAlone, letItBurn, keepGoing, neededThis]
+      properties:
+        heard:
+          type: integer
+        iFeelThat:
+          type: integer
+        sameWave:
+          type: integer
+        notAlone:
+          type: integer
+        letItBurn:
+          type: integer
+        keepGoing:
+          type: integer
+        neededThis:
+          type: integer
+
+    ReportInput:
+      type: object
+      required: [reason]
+      properties:
+        reason:
+          type: string
+        details:
+          type: string
+
+    Report:
+      type: object
+      required: [id, postId, reason, createdAt]
+      properties:
+        id:
+          type: integer
+        postId:
+          type: integer
+        reason:
+          type: string
+        details:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
+
+    ContentCheck:
+      type: object
+      required: [content]
+      properties:
+        content:
+          type: string
+
+    SafetyResult:
+      type: object
+      required: [flagType, allowed, message, severity]
+      properties:
+        flagType:
+          type: string
+          enum: [none, selfHarm, threat, blocked, harassment, spam]
+        severity:
+          type: string
+          enum: [none, low, medium, high]
+        allowed:
+          type: boolean
+        message:
+          type: ["string", "null"]
+
+    FeedSummary:
+      type: object
+      required: [activePostCount, totalReactions, topEmotion]
+      properties:
+        activePostCount:
+          type: integer
+        totalReactions:
+          type: integer
+        topEmotion:
+          type: ["string", "null"]
+
+    AdminPost:
+      type: object
+      required: [id, content, isAnonymous, expiresAt, createdAt, reactionCounts, reportCount, isRemoved, isFlagged]
+      properties:
+        id:
+          type: integer
+        content:
+          type: string
+        emotionTag:
+          type: ["string", "null"]
+        authorName:
+          type: ["string", "null"]
+        isAnonymous:
+          type: boolean
+        expiresAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        reactionCounts:
+          $ref: "#/components/schemas/ReactionCounts"
+        reportCount:
+          type: integer
+        isRemoved:
+          type: boolean
+        isFlagged:
+          type: boolean
+        moderationNote:
+          type: ["string", "null"]
+
+    RateLimitResponse:
+      type: object
+      required: [error, retryAfterSeconds]
+      properties:
+        error:
+          type: string
+        retryAfterSeconds:
+          type: integer
+
+    DailyPrompt:
+      type: object
+      required: [prompt, date]
+      properties:
+        prompt:
+          type: string
+        date:
+          type: string
+
+    ModerationAction:
+      type: object
+      required: [action]
+      properties:
+        action:
+          type: string
+          enum: [remove, flag, unflag, restore]
+        note:
+          type: string

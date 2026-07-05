@@ -1,0 +1,193 @@
+Build a mobile-first web app called VentWall.
+
+Concept:
+VentWall is an anonymous text-based live wall where people can vent, confess, celebrate, rant, or say what they need to get off their chest. It should feel like TikTok/Facebook scrolling energy, but without video. It is a live rolling feed of human thoughts.
+
+Landing screen:
+When someone opens the site, do NOT send them straight into posting. Show a clean welcome screen with:
+
+VentWall
+“Say it. Drop it. Let it go.”
+
+Two large buttons:
+1. Join VentWall
+2. Vent Anonymously
+
+Also include small links:
+- What is VentWall?
+- Safety Rules
+- Terms of Service
+- Privacy
+- Settings
+
+Design:
+Make it look like a real app, not a plain website.
+Dark mode by default.
+Modern mobile-first layout.
+Feed should feel alive.
+Use a typewriter / rolling wall effect where new vents appear with a subtle typing animation.
+The wall should look like a stream of floating text cards.
+Add soft movement so the feed feels active, but not annoying.
+
+Main feed:
+Users see a live endless scrolling wall.
+Each post card should show:
+- Emotion tag
+- Text post
+- Anonymous or username
+- Time left before post expires
+- Echo reactions
+- Reply button
+- Report button
+
+Post expiration:
+Anonymous vents stay live for 7 days.
+Profile/user posts stay live for 30 days.
+Old posts should automatically expire and disappear from the feed.
+
+Posting:
+User can post as:
+- Anonymous
+- Username/profile
+
+Post button text:
+“Throw It Into The Void”
+
+Emotion categories:
+- Angry
+- Sad
+- Happy
+- Stressed
+- Lonely
+- Celebration
+- Random Thought
+- Confession
+- Need Advice
+- I’m Okay Now
+
+Reaction system:
+Do NOT use Facebook-style likes or thumbs up.
+
+Use “Echoes” instead.
+
+Echo reaction buttons:
+- Heard
+- I Feel That
+- Same Wave
+- Not Alone
+- Let It Burn
+- Keep Going
+- Needed This
+
+Show reaction counts like:
+“42 Heard”
+“18 Same Wave”
+“9 Not Alone”
+
+Anonymous mode:
+A person should be able to use the site without making an account.
+They can click “Vent Anonymously,” type a vent, pick emotion, and post.
+
+Join mode:
+Users can create a simple username and profile.
+Profile should be optional.
+No real name required.
+Profile users can save their posts and keep them longer.
+
+Safety and AI moderation:
+This is a venting platform, so do NOT over-moderate normal anger, profanity, politics, religion, ugly thoughts, or offensive language.
+
+Allowed:
+- anger
+- cussing
+- controversial opinions
+- emotional vents
+- dark humor
+- rough language
+- people saying they are upset, lost, angry, lonely, or tired
+
+Blocked or escalated:
+- credible self-harm intent
+- credible threat to hurt someone else
+- doxxing
+- addresses or phone numbers posted to attack someone
+- child sexual content
+- instructions for crime
+- direct calls for violence
+- spam, scams, bots
+- targeted harassment campaigns
+
+Self-harm safeguard:
+If a post sounds like the person may hurt themselves, show a popup before posting:
+
+“You sound like you may be in a really heavy place right now. VentWall is here for expression, but if you may hurt yourself, please contact help now.”
+
+Add buttons:
+- Call or text 988
+- Crisis resources
+- Continue posting
+
+Serious threat safeguard:
+If a post says they are going to hurt or kill a specific person, block the post and show:
+
+“We can’t publish threats to harm another person. You can vent your anger, but direct threats are not allowed.”
+
+What is VentWall page:
+Explain:
+VentWall is a live anonymous wall of thoughts. It is not about followers, popularity, or looking perfect. It is a place to get something off your chest and see that other people feel things too.
+
+Safety Rules page:
+Short version:
+1. Venting is allowed.
+2. Profanity and ugly emotions are allowed.
+3. Threats are not allowed.
+4. Doxxing is not allowed.
+5. Exploiting minors is never allowed.
+6. Spam and scams are not allowed.
+7. You are responsible for what you post.
+8. VentWall may remove content that creates real-world danger.
+
+Terms of Service starter:
+Create a Terms page with simple readable sections:
+- Acceptance of Terms
+- Anonymous Posting
+- User Responsibility
+- Content Rules
+- No Emergency Service
+- Crisis Resources
+- Moderation Rights
+- Post Expiration
+- No Guarantee of Privacy
+- Account Termination
+- Contact
+
+Important TOS language:
+VentWall is not therapy, medical care, legal advice, crisis counseling, or emergency support. If someone is in immediate danger, they should call emergency services or 988.
+
+Database:
+Create tables/models for:
+- users
+- posts
+- reactions
+- comments
+- reports
+- moderation_logs
+
+Admin dashboard:
+Create a simple admin dashboard where admins can:
+- view reported posts
+- remove posts
+- see moderation flags
+- search posts
+- ban abusive users or device/session IDs if needed
+
+Tech:
+Use React frontend.
+Use a clean backend/API.
+Use database storage.
+Make it mobile responsive.
+Make it deployable as a website first.
+Add comments in the code so a beginner can understand it.
+
+Final goal:
+A working MVP website where someone opens VentWall, sees Join or Vent Anonymously, posts a vent, and watches it appear on a live rolling wall with Echo reactions and basic safety moderation.

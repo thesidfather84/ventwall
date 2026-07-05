@@ -1,0 +1,375 @@
+VENTWALL - MAJOR VISION UPDATE
+
+This is not Facebook, Reddit, X, Threads, or TikTok.
+
+VentWall is the world's anonymous diary.
+
+The goal is to create a place where people can say what they are really thinking without chasing followers, likes, popularity, or social status.
+
+VISUAL STYLE
+
+Use the attached image as the primary visual inspiration.
+
+The site should feel like:
+
+* A dark late-night coffee shop
+* An old typewriter
+* A forgotten journal
+* A wall of drifting thoughts
+* Reading strangers' minds at 2 AM
+
+Dark theme by default.
+
+Use warm amber, parchment, brass, faded paper, charcoal black, and subtle orange highlights.
+
+The page should feel alive.
+
+Add:
+
+* Floating dust particles
+* Tiny drifting paper fragments
+* Faint floating text in the background
+* Slow ambient movement
+* Soft glowing effects
+* Occasional paper flutter animations
+
+Everything should move slowly and naturally.
+
+The site should feel like breathing, not flashing.
+
+LANDING PAGE
+
+The moment someone arrives they should immediately see the wall.
+
+Do NOT hide the feed behind menus.
+
+The feed is the product.
+
+Show real posts drifting upward immediately.
+
+Top section:
+
+VENTWALL
+
+"The World's Anonymous Diary"
+
+or
+
+"Say It. Drop It. Let It Go."
+
+Show:
+
+"147 voices drifting through the wall"
+
+Main buttons:
+
+🔥 Vent Anonymously
+
+🕯 Join VentWall
+
+Anonymous should be the primary action.
+
+LIVE WALL
+
+The feed should feel like a river of human thoughts.
+
+Posts continuously drift upward.
+
+New posts appear with a subtle typewriter animation.
+
+Examples:
+
+"I lost my job today."
+
+"My wife beat cancer."
+
+"I don't know what I'm doing anymore."
+
+Posts should appear as parchment paper cards.
+
+Cards should feel handwritten or typed.
+
+TYPEWRITER INPUT SYSTEM
+
+The bottom of the screen is VentWall's signature feature.
+
+Instead of a normal text box:
+
+Display a vintage-inspired typewriter.
+
+As users type:
+
+* Keys animate
+* Paper moves upward
+* Cursor blinks
+* Typewriter sound plays if enabled
+
+Post button:
+
+THROW IT INTO THE VOID
+
+When submitted:
+
+The paper leaves the typewriter.
+
+Floats upward.
+
+Joins the live wall.
+
+This animation should feel magical.
+
+USER TYPES
+
+Two modes:
+
+1. Anonymous
+2. Username/Profile
+
+Anonymous users do not need an account.
+
+Users can immediately begin venting.
+
+PROFILE USERS
+
+Optional only.
+
+Users may create:
+
+* Username
+* Avatar
+* Bio
+
+No real names required.
+
+EMOTION CATEGORIES
+
+* Angry
+* Sad
+* Happy
+* Lonely
+* Stressed
+* Celebration
+* Confession
+* Need Advice
+* Random Thought
+* I'm Okay Now
+
+ECHO REACTION SYSTEM
+
+Do NOT use likes.
+
+Do NOT use thumbs up.
+
+Reactions are called Echoes.
+
+Available Echoes:
+
+🕯 Heard
+
+🌊 Same Wave
+
+🤝 Not Alone
+
+🔥 Let It Burn
+
+💪 Keep Going
+
+⭐ Needed This
+
+Display:
+
+42 Heard
+
+18 Same Wave
+
+7 Not Alone
+
+No popularity system.
+
+No follower counts.
+
+No influencer culture.
+
+COMMENTS
+
+Comments are called Echoes.
+
+Replies should feel like conversations around a campfire.
+
+OPTIONAL FUTURE FEATURE
+
+Campfires
+
+Temporary anonymous discussion rooms.
+
+5-10 random users discussing a vent.
+
+Room disappears after 24 hours.
+
+ANONYMOUS USER NAMES
+
+Instead of User1234:
+
+Anonymous Lantern
+
+Wandering Page
+
+Quiet Echo
+
+Lost Signal
+
+Midnight Voice
+
+Drifting Soul
+
+Forgotten Note
+
+SOUND SYSTEM
+
+Sound OFF by default.
+
+Users may enable:
+
+OFF
+
+Typewriter Only
+
+Ambient Mode
+
+Full Experience
+
+Ambient options:
+
+🌧 Rain Room
+
+🌊 Ocean Night
+
+🚂 Midnight Train
+
+📻 Old Radio
+
+🕯 Candlelight
+
+⌨ Typewriter
+
+Use:
+
+* Soft typewriter clicks
+* Paper sounds
+* Vinyl crackle
+* Distant rain
+* Quiet ambience
+
+No loud music.
+
+No distracting soundtrack.
+
+MIDNIGHT MODE
+
+After 10 PM local time:
+
+* Darker interface
+* Slower animations
+* Softer lighting
+* More atmospheric visuals
+
+SAFETY SYSTEM
+
+VentWall is for expression.
+
+Do NOT over-moderate.
+
+Allowed:
+
+* Profanity
+* Anger
+* Political opinions
+* Religious opinions
+* Ugly emotions
+* Dark humor
+* Emotional venting
+
+Blocked:
+
+* Credible threats
+* Doxxing
+* Child exploitation
+* Criminal instructions
+* Terrorist content
+* Spam and scams
+
+SELF-HARM SAFEGUARD
+
+If AI detects possible self-harm:
+
+Show:
+
+"You sound like you may be going through something heavy right now."
+
+Display:
+
+* Call/Text 988
+* Crisis Resources
+* Continue Posting
+
+Do not automatically delete unless necessary.
+
+THREAT SAFEGUARD
+
+If user threatens another person:
+
+Block post.
+
+Show:
+
+"You may vent anger. Direct threats are not allowed."
+
+POST LIFESPAN
+
+Anonymous posts:
+7 days
+
+Profile posts:
+30 days
+
+Expired posts disappear automatically.
+
+ADMIN TOOLS
+
+Admin dashboard:
+
+* Review reports
+* Review moderation flags
+* Remove posts
+* Ban abusers
+* Search content
+
+DATABASE TABLES
+
+users
+
+posts
+
+comments
+
+echo_reactions
+
+reports
+
+moderation_logs
+
+FINAL FEELING
+
+VentWall should not feel like social media.
+
+VentWall should feel like standing in a dark room filled with thousands of anonymous thoughts drifting through the air.
+
+The moment someone arrives they should feel:
+
+"These are real people."
+
+The goal is not attention.
+
+The goal is honesty.
+
+Every voice leaves an echo.

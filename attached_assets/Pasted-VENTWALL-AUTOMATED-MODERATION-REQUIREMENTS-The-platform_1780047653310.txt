@@ -1,0 +1,108 @@
+VENTWALL AUTOMATED MODERATION REQUIREMENTS
+
+The platform owner cannot manually review posts every day.
+
+Build a fully automated moderation system.
+
+BEFORE ANY POST APPEARS:
+
+1. Scan text against blocked keyword database.
+
+2. Automatically reject posts containing:
+
+   * suicide instructions
+   * self-harm instructions
+   * murder threats
+   * bomb threats
+   * school shooting threats
+   * terrorist content
+   * child sexual content
+   * doxxing information
+   * revenge porn
+   * malware distribution
+   * fraud instructions
+
+3. Automatically detect:
+
+   * phone numbers
+   * email addresses
+   * street addresses
+   * social security numbers
+   * credit card numbers
+
+4. If detected:
+
+   * block publication
+   * show user warning
+   * do not publish to wall
+
+5. Store blocked content in a moderation log.
+
+6. Create three severity levels:
+
+LOW
+
+* profanity
+* insults
+
+Result:
+Allow post.
+
+MEDIUM
+
+* harassment
+* bullying
+* excessive hate language
+
+Result:
+Hide pending review.
+
+HIGH
+
+* violence
+* suicide
+* threats
+* doxxing
+* illegal content
+
+Result:
+Immediate rejection.
+
+7. Add automatic spam detection:
+
+   * repeated messages
+   * mass posting
+   * link spam
+   * bot behavior
+
+8. Auto-ban users who repeatedly violate rules.
+
+9. Add rate limiting:
+
+   * maximum posts per minute
+   * maximum posts per hour
+
+10. Add community reporting.
+
+11. Auto-hide any post receiving multiple reports until system review.
+
+12. Add emergency phrase detection.
+
+If users type phrases such as:
+
+* I want to kill myself
+* I am going to hurt myself
+* I want to die
+
+Display crisis resources and prevent publication when appropriate.
+
+13. Moderation must run automatically 24/7.
+
+14. No post should appear publicly until moderation checks pass.
+
+15. Use free keyword filtering and pattern matching first.
+
+16. Only use paid AI moderation when content is unclear.
+
+Goal:
+The website should operate safely even if the owner does not log in for weeks.

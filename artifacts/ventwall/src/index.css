@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+/* ── Global mobile overflow protection ── */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root, .dark {
+  --background: 20 10% 7%;          /* very dark brown-black */
+  --foreground: 38 25% 85%;         /* warm parchment text */
+  --card: 32 20% 14%;               /* slightly lighter dark card */
+  --card-foreground: 38 25% 80%;
+  --card-border: 32 18% 22%;
+  --border: 32 15% 20%;
+  --input: 32 15% 25%;
+  --primary: 38 90% 55%;            /* amber gold */
+  --primary-foreground: 20 10% 7%;
+  --secondary: 32 20% 20%;
+  --secondary-foreground: 38 25% 75%;
+  --muted: 32 15% 18%;
+  --muted-foreground: 38 20% 50%;
+  --accent: 32 30% 20%;
+  --accent-foreground: 38 25% 80%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 38 25% 95%;
+  --ring: 38 90% 55%;
+  --popover: 20 12% 10%;
+  --popover-foreground: 38 25% 82%;
+  --popover-border: 32 18% 22%;
+  --sidebar: 20 10% 6%;
+  --sidebar-foreground: 38 25% 75%;
+  --sidebar-border: 32 15% 15%;
+  --sidebar-primary: 38 90% 55%;
+  --sidebar-primary-foreground: 20 10% 7%;
+  --sidebar-accent: 32 20% 16%;
+  --sidebar-accent-foreground: 38 25% 75%;
+  --sidebar-ring: 38 90% 55%;
+  --chart-1: 38 90% 55%;
+  --chart-2: 200 70% 50%;
+  --chart-3: 0 72% 51%;
+  --chart-4: 120 40% 45%;
+  --chart-5: 280 60% 55%;
+  --app-font-sans: 'Courier Prime', 'Courier New', monospace;
+  --app-font-serif: 'IM Fell English', Georgia, serif;
+  --app-font-mono: 'Special Elite', 'Courier New', monospace;
+  --radius: 0.25rem;
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --primary-border: hsl(var(--primary));
+  --secondary-border: hsl(var(--secondary));
+  --muted-border: hsl(var(--muted));
+  --accent-border: hsl(var(--accent));
+  --destructive-border: hsl(var(--destructive));
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Parchment paper texture for post cards */
+  .parchment {
+    background: linear-gradient(135deg, #f4e4c1 0%, #eddeb3 30%, #e8d5a3 60%, #f0ddb5 100%);
+    position: relative;
+  }
+  .parchment::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  /* Typewriter font helper */
+  .font-typewriter { font-family: 'Special Elite', 'Courier New', monospace; }
+  /* Parchment text color */
+  .text-parchment { color: #3d2b1f; }
+  .text-parchment-muted { color: #7a5c42; }
+  /* Blinking cursor */
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  .cursor-blink { animation: blink 1s step-end infinite; }
+  /* Paper slide up animation */
+  @keyframes paperSlideUp {
+    from { transform: translateY(60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .paper-enter { animation: paperSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  /* Typewriter key press animation */
+  @keyframes keyPress { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(2px); } }
+  .key-press { animation: keyPress 0.1s ease; }
+
+  /* ── Ambient background animations ── */
+  @keyframes floatDust {
+    0%   { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.3; }
+    100% { transform: translateY(-100vh) translateX(40px) rotate(360deg); opacity: 0; }
+  }
+  @keyframes floatPaper {
+    0%   { transform: translateY(100vh) rotate(-5deg) translateX(0); opacity: 0; }
+    5%   { opacity: 0.15; }
+    95%  { opacity: 0.08; }
+    100% { transform: translateY(-20px) rotate(5deg) translateX(60px); opacity: 0; }
+  }
+  @keyframes driftText {
+    0%   { transform: translateX(-100px) translateY(0); opacity: 0; }
+    10%  { opacity: 0.07; }
+    90%  { opacity: 0.04; }
+    100% { transform: translateX(100vw) translateY(-30px); opacity: 0; }
+  }
+  @keyframes gentlePulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50%       { opacity: 0.7; transform: scale(1.05); }
+  }
+  @keyframes cardDrift {
+    0%   { transform: translateY(0px) rotate(var(--card-rotate, -1deg)); }
+    50%  { transform: translateY(-8px) rotate(var(--card-rotate, -1deg)); }
+    100% { transform: translateY(0px) rotate(var(--card-rotate, -1deg)); }
+  }
+  /* Mobile bottom nav safe area */
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  /* Hide scrollbar */
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* ── Post card states ── */
+
+  /* Echoed posts: soft amber pulse glow — slow enough to feel alive, not distracting */
+  @keyframes echoPulse {
+    0%, 100% {
+      box-shadow: 0 4px 20px rgba(180, 120, 40, 0.18), 0 0 0 0 rgba(212, 144, 10, 0);
+    }
+    50% {
+      box-shadow: 0 8px 32px rgba(180, 120, 40, 0.42), 0 0 18px -4px rgba(212, 144, 10, 0.35);
+    }
+  }
+  .post-card-echoed {
+    animation: echoPulse 4s ease-in-out infinite;
+  }
+
+  /* New posts: stamp down from slight scale — paper landing on the wall */
+  @keyframes stampIn {
+    0%   { transform: scale(1.03) translateY(-8px); opacity: 0; filter: blur(1px); }
+    60%  { transform: scale(0.995) translateY(2px); opacity: 1; filter: blur(0); }
+    100% { transform: scale(1) translateY(0); opacity: 1; filter: blur(0); }
+  }
+  .post-card-new {
+    animation: stampIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}

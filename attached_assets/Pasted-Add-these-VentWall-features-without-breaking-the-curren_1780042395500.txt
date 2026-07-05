@@ -1,0 +1,92 @@
+Add these VentWall features without breaking the current design.
+
+TASK 1 — ADMIN PASSWORD PROTECTION
+
+The Admin section must be password protected.
+
+Requirements:
+- Nobody should access Admin by just clicking the sidebar.
+- When clicking Admin, show a password screen first.
+- Use a simple admin password from an environment variable:
+  ADMIN_PASSWORD
+- Do not hardcode the password in the frontend.
+- If no ADMIN_PASSWORD exists, show:
+  “Admin password not configured.”
+- After correct password, allow access to Admin dashboard.
+- Store admin session temporarily in browser sessionStorage, not localStorage.
+- Add logout button inside Admin.
+- Admin dashboard should include:
+  - reported posts
+  - moderation flags
+  - remove post
+  - ban user/session
+  - search posts
+
+TASK 2 — MY ECHOES AS PAID FEATURE
+
+The sidebar item “My Echoes” should become a premium/paid feature.
+
+For now, do not build payment processing yet.
+
+When a free user clicks My Echoes, show a premium upsell page:
+
+Title:
+My Echoes
+
+Message:
+“Save the thoughts that hit you hardest.”
+
+Premium features:
+- Save favorite vents
+- View your Echo history
+- See posts you reacted to
+- Keep private notes
+- Longer post history
+- Custom wall themes
+- Soundscape packs
+
+Button:
+Unlock VentWall Plus
+
+Price placeholder:
+VentWall Plus — $2.99/month
+
+Also add:
+“Coming soon” until payments are added.
+
+TASK 3 — WRITE SIDEBAR ICON
+
+The Write icon should take the user directly to the vent input area.
+
+Behavior:
+- On desktop, clicking Write scrolls/focuses the typewriter/input box.
+- On mobile, clicking Write opens/focuses the vent box and keeps submit button visible.
+- If user is not on the main wall, return them to Main Wall first, then focus the input.
+- Add visual glow around the typewriter/input area for 2 seconds so user knows where to write.
+
+TASK 4 — SIDEBAR CLEANUP
+
+Sidebar items should be:
+
+Wall
+Write
+Top Echoes
+My Echoes
+Safety
+Settings
+Admin
+
+Admin should be lower or separated from normal user features.
+
+TASK 5 — FUTURE PAYMENT STRUCTURE NOTES IN CODE
+
+Add comments/placeholders for future payment integration:
+- Stripe subscription
+- VentWall Plus user flag
+- premium access check
+- locked premium pages
+
+Do not implement Stripe yet.
+Just structure the UI so it is ready later.
+
+Keep VentWall’s dark parchment/typewriter/candlelight style.

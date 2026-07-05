@@ -1,0 +1,186 @@
+VENTWALL – SAFETY, MODERATION, LEGAL PROTECTION, TERMS OF SERVICE, AND PRIVACY UPDATE
+
+Objective:
+VentWall is intended to be a free-expression platform where users can anonymously share thoughts, frustrations, celebrations, opinions, and life experiences. The platform is not intended to host illegal content, threats, harassment, or dangerous activity.
+
+=========================
+AUTOMATED MODERATION
+====================
+
+Implement a layered moderation system:
+
+Level 1: Free Automated Filters
+
+* Keyword filtering
+* Pattern matching
+* Spam detection
+* Link abuse detection
+* Personal information detection
+* Phone number detection
+* Email detection
+* Address detection
+
+Level 2: Flagged Content Review
+Automatically flag content involving:
+
+* Suicide
+* Self-harm
+* Violence
+* Murder
+* Terrorism
+* School threats
+* Child exploitation
+* Doxxing
+* Revenge porn
+* Illegal activity instructions
+* Credible threats
+
+Level 3: Community Reporting
+Add:
+
+* Report button on every post
+* Block button
+* Mute button
+* Hide post button
+
+Auto-hide content after multiple reports until reviewed.
+
+=========================
+CRISIS RESPONSE
+===============
+
+If content appears related to suicide or self-harm:
+
+Display:
+
+"If you are in immediate danger or thinking about harming yourself, contact local emergency services or call/text 988 in the United States."
+
+Do not publish obvious self-harm encouragement.
+
+=========================
+CONTENT NOT ALLOWED
+===================
+
+Users may not post:
+
+* Credible threats
+* Terrorist content
+* Child sexual content
+* Doxxing
+* Stolen personal information
+* Revenge pornography
+* Fraud schemes
+* Illegal weapon manufacturing instructions
+* Malware distribution
+* Human trafficking content
+* Content prohibited by applicable law
+
+=========================
+ANONYMOUS SPEECH POLICY
+=======================
+
+VentWall supports anonymous speech.
+
+Users may:
+
+* Vent frustrations
+* Discuss politics
+* Discuss religion
+* Criticize public figures
+* Share unpopular opinions
+* Discuss relationships
+* Discuss work experiences
+* Share personal struggles
+
+Provided such content does not violate applicable laws or platform rules.
+
+=========================
+TERMS OF SERVICE
+================
+
+Create a comprehensive Terms of Service page.
+
+Include language substantially similar to:
+
+1. USER RESPONSIBILITY
+
+Users are solely responsible for content they create, submit, publish, transmit, or otherwise make available through VentWall.
+
+2. NO GUARANTEE OF REMOVAL
+
+VentWall reserves the right, but not the obligation, to remove, restrict, edit, review, preserve, or disclose content where permitted or required by law.
+
+3. PLATFORM ROLE
+
+VentWall operates as a technology platform and communication service. VentWall does not endorse user-generated content and is not responsible for opinions expressed by users.
+
+4. CONTENT LICENSE
+
+Users retain ownership of content they submit while granting VentWall a non-exclusive license to display, store, and distribute such content for operation of the service.
+
+5. INDEMNIFICATION
+
+Users agree to defend, indemnify, and hold harmless VentWall, its owners, operators, affiliates, contractors, employees, and successors from claims arising from content they submit or actions they take on the platform.
+
+6. LIMITATION OF LIABILITY
+
+To the maximum extent permitted by applicable law, VentWall shall not be liable for indirect, incidental, consequential, punitive, or special damages.
+
+7. TERMINATION
+
+VentWall may suspend, restrict, or terminate accounts at its discretion for violations of these terms.
+
+8. GOVERNING LAW
+
+Include governing law and venue clauses appropriate to the business location.
+
+9. APPLICABLE LAW CLAUSE
+
+Where required by local, state, federal, national, international, consumer protection, privacy, or data protection laws, including but not limited to laws applicable within the European Union, United Kingdom, Canada, Australia, and other jurisdictions, these Terms shall be interpreted and enforced in compliance with such laws to the extent legally required.
+
+10. SEVERABILITY
+
+If any provision is deemed invalid or unenforceable, remaining provisions shall remain in full force and effect.
+
+=========================
+PRIVACY POLICY
+==============
+
+Create a Privacy Policy that explains:
+
+* Information collected
+* IP logging
+* Device information
+* Browser information
+* Cookies
+* Analytics usage
+* Abuse prevention logging
+* Legal compliance requests
+* User rights where applicable
+* Data retention periods where applicable
+
+Add:
+
+"Certain privacy rights may apply depending on a user's jurisdiction and applicable law."
+
+=========================
+DISCLAIMERS
+===========
+
+Display site-wide disclaimer:
+
+"Views expressed by users are their own and do not represent the views of VentWall."
+
+Add footer links:
+
+* Terms of Service
+* Privacy Policy
+* Content Policy
+* Report Abuse
+* Contact
+
+=========================
+GOAL
+====
+
+Create the strongest practical legal, moderation, and safety framework possible while preserving anonymous free expression and complying with applicable laws where required.
