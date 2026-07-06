@@ -10,7 +10,14 @@ if (!process.env.DATABASE_URL) {
   );
 }
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+// `max: 1` — each serverless invocation gets its own process, so a large
+// per-process pool multiplies across concurrent invocations and can exhaust
+// Neon's connection limit. Use Neon's pooled ("-pooler") connection string
+// for DATABASE_URL so this single connection is itself PgBouncer-pooled.
+export const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  max: 1,
+});
 export const db = drizzle(pool, { schema });
 
 export * from "./schema";
