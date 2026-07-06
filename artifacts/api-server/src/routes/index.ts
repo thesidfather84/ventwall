@@ -4,7 +4,6 @@ import postsRouter from "./posts.js";
 import moderationRouter from "./moderation.js";
 import adminRouter from "./admin.js";
 import reflectionsRouter from "./reflections.js";
-import migrateRouter from "./migrate.js";
 
 const router: IRouter = Router();
 
@@ -13,6 +12,5 @@ router.use(postsRouter);
 router.use(moderationRouter);
 router.use(adminRouter);
 router.use(reflectionsRouter);
-router.use(migrateRouter);
 
 export default router;
