@@ -2,7 +2,8 @@
   "framework": null,
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm --filter @workspace/ventwall run build",
-    "rewrites": [
+  "outputDirectory": "artifacts/ventwall/dist/public",
+  "rewrites": [
     { "source": "/api/:path*", "destination": "/api/index" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
