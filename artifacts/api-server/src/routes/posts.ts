@@ -17,8 +17,8 @@ import {
   ReportPostParams,
   ReportPostBody,
 } from "@workspace/api-zod";
-import { buildReactionCounts, buildPostResponse, buildAdminPostResponse } from "../lib/postHelpers";
-import { checkContent } from "../lib/moderationEngine";
+import { buildReactionCounts, buildPostResponse, buildAdminPostResponse } from "../lib/postHelpers.js";
+import { checkContent } from "../lib/moderationEngine.js";
 
 const router: IRouter = Router();
 

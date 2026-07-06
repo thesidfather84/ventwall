@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { CheckContentBody } from "@workspace/api-zod";
-import { checkContent } from "../lib/moderationEngine";
+import { checkContent } from "../lib/moderationEngine.js";
 
 const router: IRouter = Router();
 

@@ -7,7 +7,7 @@ import {
   ModeratePostBody,
   ListAdminReportsQueryParams,
 } from "@workspace/api-zod";
-import { buildAdminPostResponse } from "../lib/postHelpers";
+import { buildAdminPostResponse } from "../lib/postHelpers.js";
 
 const router: IRouter = Router();
 
