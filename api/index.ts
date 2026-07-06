@@ -12,6 +12,6 @@
  * the whole Express app with esbuild into this single generated file, so
  * there are no cross-package workspace imports left for Node to resolve.
  */
-import app from "./_app.generated.mjs";
+import app from "./_generated/app.mjs";
 
 export default app;

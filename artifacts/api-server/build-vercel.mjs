@@ -23,7 +23,11 @@ async function buildAll() {
     platform: "node",
     bundle: true,
     format: "esm",
-    outfile: path.resolve(artifactDir, "../../api/_app.generated.mjs"),
+    // esbuild-plugin-pino adds extra entry points for pino's worker
+    // transport files, so esbuild requires "outdir" rather than "outfile"
+    // even though there's a single logical entry point (src/app.ts).
+    outdir: path.resolve(artifactDir, "../../api/_generated"),
+    outExtension: { ".js": ".mjs" },
     logLevel: "info",
     external: [
       "*.node",
